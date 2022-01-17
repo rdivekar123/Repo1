@@ -1,6 +1,12 @@
 function x_dot = kinematics_model(state, control, param)
-% state = [x, y, yaw, delta]
-% control = [v_desired, delta_des]
+% This function calulates the derivate states which will used for forward
+% propogating the ego state.
+% Inputs:
+% state = [x, y, yaw, delta] is the ego state 
+% control = [v_desired, steering angle] is the control input to the model
+% param: model parameters
+% Outputs:
+% x_dot: derivative of state 
 
 v_desired = control(1);
 delta_des = control(2);

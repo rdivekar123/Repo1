@@ -1,8 +1,12 @@
 function [u] = kinematic_lqr_controller(state, ref, param)
 % KINEMATIC_LQR_CONTROLLER 
-% state = [x, y, yaw, delta]
-% ref = [x_ref; y_ref; yaw_ref; v_ref, curvature_ref];
-% control = [v_des, delta_des]
+% This function calculates the control output to drive the ego vehicle.
+% Inputs:
+% state = [x, y, yaw, delta] is the ego state 
+% ref = [x_ref; y_ref; yaw_ref; v_ref, curvature_ref] is the reference path
+% param: model parameters
+% Outputs: 
+% u = [v_des, delta_des] is the control output
 
 % calculate projection point from reference path as the closest point to
 % ego

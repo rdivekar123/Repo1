@@ -1,4 +1,16 @@
 function [outputStates] = simulate(model, controller, x0, ref, end_time, param)
+% This function forward propogates the ego states for the given simulation
+% time.
+% Inputs: 
+% model: Mathematical model function handle used to forward simulate the motion of ego
+% controller: function handle to the controller which will calculate the
+% control action
+% x0: init state of the ego
+% ref: reference path
+% end_time: Length of simulation in seconds
+% param: Model params
+% Outputs: 
+% outputStates: Log of all the output states from ego motion. 
 x = x0;
 t = 0;
 dt = param.control_dt;
