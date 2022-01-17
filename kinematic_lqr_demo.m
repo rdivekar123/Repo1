@@ -7,7 +7,8 @@ y_ref = zeros (1,199);
 
 x_ref_back = 199:-1:1;
 y_ref_back = 100*ones (1,199);
-path = [[x_ref]' [y_ref]'];
+% path = [[x_ref]' [y_ref]'];
+% Semicircle center
 x=200;      
 y=50;
 r=50;
@@ -20,8 +21,8 @@ plot(path(:, 1), path(:,2))
 %% reference line generation
 x_spline = csaps(1:1:length(path),path(:,1),0.1,1:0.01:length(path));
 y_spline = csaps(1:1:length(path),path(:,2),0.1,1:0.01:length(path));
-%f = figure()
-%plot(x_spline, y_spline)
+% f = figure()
+% plot(x_spline, y_spline)
 yaw_spline = zeros(1, length(x_spline));
 for i = 2:length(x_spline)-1
     x_next = x_spline(i+1);
@@ -33,6 +34,7 @@ end
 yaw_spline(1) = yaw_spline(2);
 yaw_spline(end) = yaw_spline(end-1);
 xy_spline = [x_spline', y_spline'];
+
 % insert Meneger curvature
 curvature_spline = zeros(1, length(x_spline));
 for i = 2:length(x_spline)-1
